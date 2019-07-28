@@ -84,7 +84,7 @@ app.get('/webhook', (req, res) => {
 
 function handleMessage(sender_psid, received_message) {
 
-  logResponses(received_message.text)
+  populateConversationObject(received_message.text)
 
   if ((received_message.text !== currentQuestion) && (currentQuestion === "Can you confirm the name of the place you visited?")) {
     place = received_message.text
@@ -205,7 +205,7 @@ function handleMessage(sender_psid, received_message) {
 
 }
 
-function logResponses(response) {
+function populateConversationObject(response) {
   if (response !== currentQuestion) {
     conversationObject[currentQuestion] = response
   }
