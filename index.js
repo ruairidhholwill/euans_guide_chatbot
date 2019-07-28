@@ -83,9 +83,7 @@ app.get('/webhook', (req, res) => {
 
 function handleMessage(sender_psid, received_message) {
 
-  if (received_message.text !== currentQuestion) {
-    console.log("CURRENT Q:", currentQuestion, "RECEIVED:", received_message.text)
-  }
+  logResponses(received_message.text)
 
   if ((received_message.text !== currentQuestion) && (currentQuestion === "Can you confirm the name of the place you visited?")) {
     place = received_message.text
@@ -204,6 +202,12 @@ function handleMessage(sender_psid, received_message) {
   // Send the response message
   callSendAPI(sender_psid, handleResponse);
 
+}
+
+function logResponses(response) {
+  if (response !== currentQuestion) {
+    console.log("CURRENT Q:", currentQuestion, "RECEIVED:", response)
+  }
 }
 
 
