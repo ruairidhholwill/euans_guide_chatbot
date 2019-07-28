@@ -11,7 +11,7 @@ let currentQuestion;
 let handleResponse;
 let place;
 let overallRating;
-let conversationObject;
+let conversationObject = {};
 // Sets server port and logs message on success
 app.listen(process.env.PORT || 1337, () => console.log('webhook is listening'));
 
