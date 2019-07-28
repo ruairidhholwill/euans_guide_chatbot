@@ -198,6 +198,7 @@ function handleMessage(sender_psid, received_message) {
 
 
   // Send the response message
+  console.log("RECEIVED:", received_message.text, "NEXT Q:", currentQuestion)
   callSendAPI(sender_psid, handleResponse);
 
 }
