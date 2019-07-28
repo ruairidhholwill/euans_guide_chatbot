@@ -11,6 +11,7 @@ let currentQuestion;
 let handleResponse;
 let place;
 let overallRating;
+let conversationObject;
 // Sets server port and logs message on success
 app.listen(process.env.PORT || 1337, () => console.log('webhook is listening'));
 
@@ -206,7 +207,8 @@ function handleMessage(sender_psid, received_message) {
 
 function logResponses(response) {
   if (response !== currentQuestion) {
-    console.log("CURRENT Q:", currentQuestion, "RECEIVED:", response)
+    conversationObject[currentQuestion] = response
+    console.log(conversationObject)
   }
 }
 
