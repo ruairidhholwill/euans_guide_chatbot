@@ -208,8 +208,8 @@ function handleMessage(sender_psid, received_message) {
 function logResponses(response) {
   if (response !== currentQuestion) {
     conversationObject["currentQuestion"] = "response"
-    console.log(conversationObject)
   }
+  console.log(conversationObject)
 }
 
 
