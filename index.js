@@ -83,7 +83,9 @@ app.get('/webhook', (req, res) => {
 
 function handleMessage(sender_psid, received_message) {
 
-  console.log("RECEIVED:", received_message.text, "CURRENT Q:", currentQuestion)
+  if (received_message.text !== currentQuestion) {
+    console.log("CURRENT Q:", currentQuestion, "RECEIVED:", received_message.text)
+  }
 
   if ((received_message.text !== currentQuestion) && (currentQuestion === "Can you confirm the name of the place you visited?")) {
     place = received_message.text
