@@ -206,6 +206,7 @@ function handleMessage(sender_psid, received_message) {
 }
 
 function populateConversationObject(response) {
+
   if (response !== currentQuestion) {
     conversationObject[currentQuestion] = response
   }
